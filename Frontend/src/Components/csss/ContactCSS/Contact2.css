@@ -1,0 +1,231 @@
+.contact2{
+    padding:100px;
+    width:100%;
+    height:100vh;
+    display:flex;
+    position:relative;
+
+    z-index:2;
+   
+  }
+  .firsthalf{
+    width:50%;
+  }
+  .contact2 .contactCard{
+
+   width:500px;
+    background-color:#072032;
+    color:white;
+    margin:-200px -100px 200px 0px;
+    height:510px;
+    border-radius:10px;
+    
+  }
+  .contact2 .contactCard .heading{
+    padding-top:30px;
+    padding-left:63px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 30px;
+  }
+  .contact2 .contactCard .sub-heading{
+  
+    font-family: 'Montserrat', sans-serif;
+    font-size: 13px;
+    padding-left:60px;
+    padding-top:15px;
+    padding-right:40px;
+    font-weight:100;
+    line-height:1.5;
+  }
+  .contact2 .contactCard form{
+    padding:20px;
+  }
+
+  .contact2 .contactCard form input{
+    width:100%;
+    border-radius:10px;
+    border:none;
+    padding:20px;
+    margin-top:10px;
+    gap:20px;
+    display:flex;
+    flex-direction:column;
+   
+  }
+  .contact2 .contactCard form textarea{
+    width:100%;
+    height:50px;
+    border-radius:10px;
+    border:none;
+    margin:10px 0px 10px 0px;
+    padding:20px;
+  }
+  .contact2 .contactCard form button{
+    width:100%;
+    height:50px;
+    border-radius:10px;
+    border:none;
+    margin-top:25px;
+    padding:20px;
+    background-color:#00FE5E;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+  }
+  .secondhalf{
+    margin-left:-450px;
+  }
+  .contact2 .text{
+    color:black;
+    font-family: 'Montserrat', sans-serif;
+    margin-left:800px;
+   
+
+    
+  }
+ .contact2 .text .Git{
+   background-color:#00FE5E;
+   padding-top:5px;
+   padding-bottom:5px;
+   padding-left:8px;
+   padding-right:8px;
+   border-radius:4px;
+   font-family: 'Montserrat', sans-serif;
+   font-size: 10px;
+   word-spacing: 2px;
+   margin-left:-150px
+
+  }
+  .contact2 .text .for{
+    font-family: 'Montserrat', sans-serif;
+   font-size: 40px;
+   margin-top:15px;
+   margin-left:-150px;
+   font-weight:500;
+  }
+  .contact2 .text .info div{
+    display:flex;
+    align-items:center;
+    
+  }
+  .contact2 .text .info div img{
+    margin-right:10px;
+    background-color:#00FE5E;
+    padding:5px;
+    margin-top:5px;
+    border-radius:50%;
+    margin-left:-150px;
+  }
+  .contact2 .text .info{
+    margin-top:0px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 25px;
+    word-spacing: 2px;
+    
+  }
+  
+  .contact2 .contactImage .path{
+    margin-top:-19px;
+    margin-left:692px;
+    position:absolute;
+  }
+
+ 
+  .contact2 .contactImage .mills{
+   
+    margin-top:-200px;
+   margin-left:1100px;
+  }
+ 
+  /* Responsive Design for Mobile Screens (Phones) */
+@media (max-width: 767px) {
+  .contact2 {
+    margin-top:5px;
+      flex-direction: column; /* Stack elements vertically */
+      padding: 30px 20px; /* Reduce padding */
+      height: 1000px!important; /* Allow content to expand */
+  }
+
+  /* Center and resize form */
+  .firsthalf {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      margin-top:-700px;
+  }
+
+  .contact2 .contactCard {
+      width: 90%; /* Adjust width */
+      max-width: 350px;
+      height: auto;
+      padding: -20px;
+      margin: 0 auto; /* Centering */
+  }
+
+  .contact2 .contactCard .heading {
+      font-size: 25px; /* Reduce heading size */
+      text-align: center;
+      padding-left: 0;
+  }
+
+  .contact2 .contactCard .sub-heading {
+      font-size: 12px; /* Reduce sub-heading size */
+      text-align: center;
+      padding: 10px;
+  }
+
+  /* Adjust input fields */
+  .contact2 .contactCard form input,
+  .contact2 .contactCard form textarea {
+      padding: 15px;
+      font-size: 14px;
+  }
+
+  .contact2 .contactCard form button {
+      font-size: 14px;
+      height: 45px;
+  }
+
+  /* Second half adjustments */
+  .secondhalf {
+      width: 100%;
+      text-align: center;
+      margin-left:70px;
+      margin-top: 30px;
+  }
+
+  .contact2 .text {
+      margin: 0 auto;
+      text-align: center;
+  }
+
+  .contact2 .text .Git {
+    margin-top:-30px !important;
+      font-size: 12px;
+      display: inline-block;
+      display:none;
+  }
+
+  .contact2 .text .for {
+      font-size: 28px;
+      margin-top:-25px; /* Reduce title size */
+  }
+
+  .contact2 .text .info {
+    display:flex;
+    flex-direction:column;
+    margin-top:10px;
+    margin-left:110px;
+      font-size: 16px;
+  }
+
+  /* Adjust icons */
+  .contact2 .text .info div img {
+      width: 25px; /* Reduce icon size */
+      height: 25px;
+  }
+
+  /* Hide SVGs on small screens */
+  .contact2 .contactImage {
+      display: none;
+  }
+}

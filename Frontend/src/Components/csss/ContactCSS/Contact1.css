@@ -1,0 +1,13 @@
+.contactImage {
+    width: 100vw;  /* Full width */
+    height: 100vh; /* Full height */
+    object-fit: cover; /* Ensures image covers the screen */
+}
+
+.contactContainer {
+    width: 100vw; /* Full viewport width */
+    height: 100vh; /* Full viewport height */
+    display: flex; /* Center if needed */
+    justify-content: center;
+    align-items: center;
+}

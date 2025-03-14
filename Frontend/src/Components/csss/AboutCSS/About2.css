@@ -1,0 +1,155 @@
+.about2{
+    box-sizing:border-box;
+    margin-top:0px;
+    padding:100px;
+      background-color:black;
+      width:1600px;
+  }
+    .about2 .button{
+      display:block;
+      margin-left:10px;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 24px;
+      font-weight: 400;
+      color:black;
+      background-color:#00FE5E;
+      padding:10px;
+      margin-right:1000px;
+      border-radius:10px;
+      
+    }
+    .about2 .button2{
+      margin-top:40px;
+      padding:15px;
+      font-weight:600;
+      font-family: 'Montserrat', sans-serif;
+      border-radius:30px;
+      font-size:20px;
+      border:none;
+    }
+    .about2 .block{
+      display:flex;
+      justify-content:space-between;
+      gap:100px;
+    }
+    .about2 .block .Content1{
+      margin-top:50px;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 30px;
+      font-weight: 700;
+      color:white;
+    }
+    .about2 .block .Content2{
+      font-family: 'Montserrat', sans-serif;
+      font-size: 24px;
+      margin-top:50px;
+      font-weight: 400;
+      margin-right:100px;
+      color:white;
+    }
+    .about2 .block2{
+      margin-top:100px;
+      display:flex;
+      
+      
+    }
+    .about2 .block2 .AboutImage1{
+      margin-top:50px;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 30px;
+      font-weight: 700;
+      color:white;
+    }
+    .about2 .block2 .AboutImage2{
+      margin-top:50px;
+      width:100vh;
+      color:white;
+      margin-left:40px;
+      width:120vh;
+    }
+    @media (max-width: 768px) {
+        .about2 {
+            box-sizing: border-box;
+            margin-top: 0;
+            padding: 50px 20px;  /* Reduced padding for better mobile spacing */
+            background-color: black;
+            max-width: 100vw;
+          }
+          
+          /* Main Button */
+          .about2 .button {
+            display: block;
+            width: fit-content;
+            margin: 0 auto; /* Center the button */
+            font-family: 'Montserrat', sans-serif;
+            font-size: 18px;
+            font-weight: 400;
+            color: black;
+            background-color: #00FE5E;
+            padding: 8px 12px;
+            border-radius: 10px;
+            text-align: center;
+          }
+          
+          /* Content Blocks */
+          .about2 .block {
+            display: flex;
+            flex-direction: column; /* Stack items on smaller screens */
+            gap: 20px;
+            text-align: center; /* Center text for better readability */
+          }
+          
+          /* Content Styling */
+          .about2 .block .Content1
+           {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 20px!important;
+            font-weight: 300!important;
+            color: white;
+            padding-right: 30px ;
+          }
+          
+          .about2 .block .Content2 {
+            position: relative;
+          visibility:hidden;
+          }
+          .about2 .block .button2 {
+            display: inline-block;
+            padding: 10px;
+            font-weight: 600;
+            font-family: 'Montserrat', sans-serif;
+            border-radius: 30px;
+            font-size: 16px;
+            border: none;
+            margin-top: -200px;
+            visibility: visible;
+            position:absolute;
+            margin-right: 45px;
+          }
+          
+          /* Image Container */
+          .about2 .block2 {
+            display: flex;
+            flex-direction: column; /* Stack images vertically on mobile */
+            align-items: center;
+            margin-top: -10px;
+          }
+          
+          /* Responsive Images */
+          .about2 .block2 .AboutImage1 {
+            max-width: 90%; /* Ensure images fit within screen */
+            height: auto;
+            margin-top: -130px;
+            margin-right: 20px;
+          }
+          
+          .about2 .block2 .AboutImage2 {
+            display:none;
+          }
+          .AboutImage {
+            height: 80vh; /* Increase height for phone screens */
+            object-fit: cover; /* Ensures it fills the area properly */
+          }
+          
+          
+    }

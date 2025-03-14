@@ -1,0 +1,145 @@
+.section2{
+    margin-top:100px;
+    display:flex;
+    background: linear-gradient(180deg, #FFFFFF 0%, #E7F8F0 100%);
+    box-sizing: border-box;
+   
+   padding-bottom:200px;
+  }
+  .section2 .left{
+    margin-left:40px;
+    width:50%;
+   
+  }
+  .section2 .left .greene{
+    background-color:#00FE5E;
+    color:black;
+    padding:15px;
+    border-radius:5px;
+    margin-top:0px;
+    margin-right:600px;
+  }
+  .section2 .left .headline{
+    font-family: ;
+    font-weight: 650;
+    font-size: 50px;
+    color: #121212;
+    padding:40px 0px 40px 0px;
+    margin-right:180px;
+  }
+  .section2 .left .background{
+    position:relative;
+   
+  }
+  .section2 .left .Cards{
+    display:flex;
+   position:absolute;
+   margin-top:-15%;
+   margin-left:10%;
+   gap:20px;
+  }
+
+  .section2 .Right{
+    width:60%;
+    
+  }
+  .section2 .Right .Lazer{
+    margin-left:10%;
+  }
+  .section2 .Right .paragraph{
+    margin-top:10%;
+    line-height: 1.5;
+    margin-left:10%;
+    font-family: 'Montserrat', sans-serif;
+    color:#5C6972;
+    font-size:20px;
+    margin-right:60px;
+  }
+  .section2 .Right .Learn{
+    margin-top:4%;
+    margin-left:12%;
+    margin-right:480px;
+    font-family: 'Montserrat', sans-serif;
+    color:black;
+    font-size:20px;
+    background-color:#00FE5E;
+    padding:15px ;
+    border-radius:40px;
+    display:inline-block;
+    justify-content:center;
+   
+  }
+
+
+
+
+
+
+
+
+@media (max-width: 768px) {
+    
+    .section2 {
+    flex-direction: column; /* Stack elements vertically */
+    align-items: center;
+    text-align: center;
+    padding: 40px 20px; /* Adjust padding */
+  }
+
+  .section2 .left {
+    width: 100%;
+    margin-left: 0;
+  }
+
+  .section2 .left .greene {
+    font-size: 14px;
+    padding: 10px;
+    width: fit-content;
+    margin: -100px auto 10px auto;
+  }
+
+  .section2 .left .headline {
+    font-size: 28px;
+    padding: 20px 0;
+    margin-right: 0;
+  }
+
+  /* Hide the windmills background and cards */
+  
+  .section2 .Right .Lazer
+   {
+    display: none;
+  }
+  .section2 .left .background{
+    height:250px;
+    margin-top:0px;
+    margin-left:0px;
+   
+  }
+  
+  .section2 .left .Cards{
+    height:100px;
+    padding-top:0px;
+    margin-left:90px;
+    margin-top:530px;
+    position:fixed;
+  }
+  .section2 .Right {
+    width: 100%;
+    margin: 0;
+  }
+
+  .section2 .Right .paragraph {
+    font-size: 16px;
+    margin-top: 20px ;
+    
+  }
+
+  .section2 .Right .Learn {
+    font-size: 16px;
+    padding: 10px 20px;
+    border-radius: 30px;
+    display: inline-block;
+    margin: 40px 0px 20px 250px;
+  }
+}

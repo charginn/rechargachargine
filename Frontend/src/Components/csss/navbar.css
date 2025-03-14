@@ -1,0 +1,311 @@
+.navbar{
+   height:170px;
+   background-color: rgba(0, 0, 0, 0.4);
+   display:flex;
+   color:white;
+   overflow: visible;
+   position: relative;
+   opacity: 0.8;
+}
+
+.navbar .first{
+  display:flex;
+  gap:20px;
+  margin-top:50px;
+  margin-left:50px;
+  width:250px;
+  gap:30px;
+ 
+}
+
+.navbar .first .name{
+   font-family: 'Montserrat', sans-serif;
+   font-size: 34px;
+   font-weight: 500;
+   color: #00FE5E;
+   letter-spacing: -0.32px;
+}
+.navbar .first .logo img{
+  height:70px;
+  width:50px;
+ 
+}
+.navbar .vl{
+  border-right:0.5px solid grey;
+  height:170px;
+  margin-left:30px;
+}
+
+.navbar .second{
+  display:flex;
+  flex-direction:row;
+  gap:20px;
+  margin-top:170px;
+  width:250px;
+  gap:30px;
+  
+}
+.navbar .second .top{
+  display:flex;
+  flex-direction:row;
+  margin-top:25px;
+  margin-left:50px;
+  gap:20px;
+  
+}
+.navbar .second .top .item1{
+  display:flex;
+  flex-direction:row;
+  gap:20px;
+  
+}
+.navbar .second .top .item2{
+  display:flex;
+  flex-direction:row;
+  gap:20px;
+  
+}
+.navbar .second .top .item1 img{
+  height:30px;
+  width:30px;
+  background-color:#00FE5E;
+  border-radius:50%;
+  padding:5px;
+  margin-top:-5px;
+  
+}
+.navbar .second .top .item2 img{
+  height:30px;
+  width:30px;
+  background-color:#00FE5E;
+  border-radius:50%;
+  padding:5px;
+  margin-top:-5px;
+  
+}
+.navbar .second .top .items{
+  display:flex;
+  flex-direction:row;
+  gap:20px;
+  margin-left:300px;
+  
+}
+.navbar .second .top .items img{
+  height:30px;
+  width:30px;
+  background-color:grey;
+  border-radius:50%;
+  padding:5px;
+  
+}
+
+.navbar .bottom{
+  display:flex;
+  flex-direction:row;
+  gap:20px;
+  margin-top:25px;
+  margin-left:-80px;
+  
+}
+.navbar .bottom .parts{
+  display:flex;
+  margin-top:80px;
+  gap:40px;
+  color:white;
+  margin-left:-50px;
+}
+.navbar .bottom .parts li{
+  list-style-type: none;
+ color:white;
+  font-weight:00;
+  
+}
+.navbar .bottom .support{
+  display:flex;
+  flex-direction:row;
+  margin-left:70px;
+  gap:20px;
+  margin-top:80px;
+  
+}
+.navbar .bottom .support img{
+  height:30px;
+  width:30px;
+  background-color:#00FE5E;
+  border-radius:50%;
+  padding:5px;
+  margin-top:0px;
+  
+}
+.navbar .bottom .last{
+  display:flex;
+  flex-direction:row;
+  gap:20px;
+  
+}
+.navbar .bottom .last button{
+  margin-top:60px;
+  margin-bottom:60px;
+  padding:15px;
+  border-radius:20px;
+   border:none;
+   display:flex;
+   align-items:center;
+  
+}
+.navbar .bottom .last button:hover{
+  background-color:#00FE5E;
+  color:black;
+}
+.navbar .second .top::after {
+  content: "";
+  display: block;
+  width: 1300px;
+  height: 0.5px;
+  background-color: grey; /* Grey line */
+  position: absolute;
+  top:70px; /* Adjust distance below the section */
+  left: 0;
+}
+.navbar .bottom .parts li a {
+  color: white; /* Default color */
+  text-decoration: none; /* Removes underline */
+  font-weight: 500;
+  transition: color 0.3s ease-in-out;
+  font-style:underline; /* Smooth color transition */
+  font-size:18px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight:500;
+  margin-left:15px;
+}
+.navbar .bottom .parts li a:hover {
+  color: #00FE5E; 
+
+}
+.navbar .vl2
+{
+  border-right:0.5px solid grey;
+  height:90px;
+  margin-left:130px;
+  margin-top:55px;
+}
+.vl3{
+  border-right:0.5px solid grey;
+  height:90px;
+  margin-left:70px;
+ margin-top:56px;
+}
+ 
+.navbar .bottom .last{
+ margin-left:60px;
+ margin-top:10px;
+}
+.navbar .bottom .last button{
+ padding:20px;
+}
+
+.eng{
+ background:none;
+  margin-left:10px;
+  height:30px;
+  width:50px;
+  border:none;
+  color:white;
+}
+
+.hamburger {
+  display: none;
+  
+  cursor: pointer;
+}
+
+.mobile-menu {
+  display: none;
+  flex-direction: column;
+  background-color: rgba(0, 0, 0, 0.4);
+  position: absolute;
+  top: 60px;
+  left: 0;
+  
+  width: 100%;
+  height:300px;
+  padding: 10px;
+ 
+}
+
+.mobile-menu li {
+  list-style: none;
+  padding: 10px;
+  text-align: center;
+  color:white;
+}
+
+@media (max-width: 768px) {
+  .hamburger {
+      display: block;
+      margin-left: 350px;
+      margin-top: -30px;
+      font-size: 34px;
+  }
+
+  .bottom {
+      display: none;
+  }
+
+  .mobile-menu {
+      display: flex;
+  }
+  .navbar{
+   height:80px;
+  }
+  .navbar .vl{
+    display:none;
+  }
+  .navbar .line{
+    display:none!important;
+  }
+  .navbar .vl2{
+    display:none;
+  }
+  .navbar .vl3{
+    display:none;
+  }
+  .navbar .second .item1{
+    margin-left:-330px;
+    margin-top:230px;
+  }
+  .navbar .second .item2{
+    display:none;
+  }
+  .navbar .bottom{
+    display:none;
+  }
+  .navbar .first .name{
+    display:none;
+  }
+  .navbar .first .logo{
+    display:none;
+  }
+
+  .navbar .mobile-menu{
+    display:flex;
+    gap:30px;
+  }
+  .navbar .mobile-menu li{
+    list-style-type: none;
+    padding: 10px;
+    text-align: center;
+    color:white;
+  }
+  .navbar .mobile-menu li a{
+    color:white;
+    text-decoration: none;
+        font-weight:500;
+        font-size:18px;
+  }
+  
+  .navbar .second {
+    display: none;
+  }
+  
+}
