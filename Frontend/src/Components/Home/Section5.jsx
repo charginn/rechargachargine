@@ -10,35 +10,7 @@ import { useRef } from 'react';
 import '../csss/HomeCSS/Section5.css'
 
 const Section5 = () => {
-  const stepsRef = useRef(null);
-
-  // Drag Scroll Function
-  const handleMouseDown = (e) => {
-    const slider = stepsRef.current;
-    slider.isDown = true;
-    slider.startX = e.pageX - slider.offsetLeft;
-    slider.scrollLeftStart = slider.scrollLeft;
-  };
-
-  const handleMouseLeave = () => {
-    const slider = stepsRef.current;
-    slider.isDown = false;
-  };
-
-  const handleMouseUp = () => {
-    const slider = stepsRef.current;
-    slider.isDown = false;
-  };
-
-  const handleMouseMove = (e) => {
-    const slider = stepsRef.current;
-    if (!slider.isDown) return;
-    e.preventDefault();
-    const x = e.pageX - slider.offsetLeft;
-    const walk = (x - slider.startX) * 2; // Adjust sensitivity
-    slider.scrollLeft = slider.scrollLeftStart - walk;
-  };
-
+  
   return (
     <div className='section5'>
        <div className='howitworks'>

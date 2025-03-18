@@ -2,8 +2,9 @@ import React, { useState, forwardRef } from 'react';
 import pointer from '../images/pointer.png';
 import '../csss/HomeCSS/Section6.css';
 
-const Section6 = forwardRef((props, ref) => {  // ✅ Fixed forwardRef syntax
+const Section6 = forwardRef((props, ref) => {  
 
+   
     const [formData, setFormData] = useState({
         name: '',
         email: '',
@@ -28,6 +29,7 @@ const Section6 = forwardRef((props, ref) => {  // ✅ Fixed forwardRef syntax
             alert("You must accept the terms and conditions.");
             return;
         }
+        console.log('Sending data', formData);
 
         const response = await fetch('http://localhost:5000/UserContact', {
             method: 'POST',
@@ -36,9 +38,9 @@ const Section6 = forwardRef((props, ref) => {  // ✅ Fixed forwardRef syntax
             },
             body: JSON.stringify(formData),
         });
-
+         console.log('response recieved',response);
         if (response.ok) {
-            alert('Message sent successfully!');
+            alert('Email sent successfully!');
             setFormData({
                 name: '',
                 email: '',
@@ -50,7 +52,9 @@ const Section6 = forwardRef((props, ref) => {  // ✅ Fixed forwardRef syntax
         } else {
             alert('Failed to send message. Please try again.');
         }
-    };
+       
+        
+};
 
     return (
         <div className='section6' ref={ref}> {/* ✅ Attach ref here */}
@@ -74,7 +78,7 @@ const Section6 = forwardRef((props, ref) => {  // ✅ Fixed forwardRef syntax
                 </div>
             </div>
             <div className='form-part'>
-                <div className='green-line'></div>
+                <hr className='green-line'/>
                 <form className='form-fill' onSubmit={handleSubmit}>
                     <div className='input1'>
                         <input type="text" placeholder='Name*' name="name" onChange={handleChange} value={formData.name} />

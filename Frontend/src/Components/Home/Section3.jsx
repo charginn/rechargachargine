@@ -32,7 +32,7 @@ const Section3 = () => {
                 <div className='col' id='col2'>
                     <div className='heading'>Sustainable Impact</div>
                     <p className='content'>The RCG reduces carbon emissions and energy costs, contributing to a cleaner, greener planet.</p>
-                    <div className='line'>
+                    <div className='line3   '>
                         <div className='num3'>03</div>
                         <div className='greencard3'><img src={BSVG3}/></div>
                     </div>

@@ -73,8 +73,10 @@ const Navbar = () => {
                     <li><Link to='/Contact' onClick={() => setMenuOpen(false)}>Contact</Link></li>
                     <div>
                         <div>
-                            <div><img className='at' src={At} alt="Email" />
-                               <div>salesquiry@rechargachargine.com</div></div>
+                            <div className='mail'>
+                                <img className='at' src={At}  />
+                               <div>salesquiry@rechargachargine.com</div>
+                               </div>
                             <div className='support'>
                                  <img className='headset' src={NewHeadset} alt="Support" />
                                  <div className='call'>

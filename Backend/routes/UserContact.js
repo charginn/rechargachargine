@@ -1,61 +1,70 @@
 const express = require('express');
 const router = express.Router();
-const UserContact = require('../models/UserContact');  // Ensure this model exists
-const nodemailer = require('nodemailer');
+const UserContact = require('../models/UserContact'); 
+const dotenv = require("dotenv");
+const nodemailer = require("nodemailer");
+const validator = require("validator");
 
-// Route to handle UserContact form submission
+dotenv.config();
+
+// POST request to handle user contact form submission
 router.post('/', async (req, res) => {
     const { name, email, phone, intercoms, message } = req.body;
 
-    // Validation: Ensure all required fields are filled
     if (!name || !email || !phone || !message) {
         return res.status(400).json({ error: "All fields are required." });
     }
+    
+    if (!validator.isMobilePhone(phone, 'any')) {
+        return res.status(400).json({ error: "Invalid phone number." });
+    }
 
     try {
-        // Create a new UserContact instance
-        const newUserContact = new UserContact({
-            name,
-            email,
-            phone,
-            intercoms,
-            message
-        });
-
-        // Save to the database
+        // 1️⃣ Save Data to Database
+        const newUserContact = new UserContact({ name, email, phone, intercoms, message });
         await newUserContact.save();
+        console.log("✅ Data saved to database");
 
-        // Send an email notification to the company
+        // 2️⃣ Setup Nodemailer Transporter
         const transporter = nodemailer.createTransport({
-            service: 'gmail',  // You can use other services if required
+            service: "gmail",
             auth: {
-                user: process.env.EMAIL_USER,  // Set your email in the .env file
-                pass: process.env.EMAIL_PASS   // Set your email password in the .env file
+                user: process.env.EMAIL_USER, 
+                pass: process.env.EMAIL_PASS 
             }
         });
 
-        // Set up the email options
+        // Verify SMTP Connection
+        transporter.verify((error, success) => {
+            if (error) {
+                console.error("❌ SMTP Connection Failed:", error);
+            } else {
+                console.log("✅ SMTP Server is Ready to Send Emails");
+            }
+        });
+
+        // 3️⃣ Email Content
         const mailOptions = {
-            from: process.env.EMAIL_USER,  // Your email (must match the Gmail account)
-            to: 'salesinquiry@rechargachargine.com',  // Recipient email
-            subject: 'New User Contact Form Submission',
-            text: `
-                Name: ${name}
-                Email: ${email}
-                Phone: ${phone}
-                Intercoms: ${intercoms || 'N/A'}
-                Message: ${message}
-            `
+            from: process.env.EMAIL_USER,
+            to: "charginerecharga@gmail.com", // Change to recipient email
+            subject: "New Contact Form Submission",
+            text: ` New User Contact Form Submitted\n\n
+                   Name: ${name}\n
+                   Email: ${email}\n
+                   Phone: ${phone}\n
+                   Intercoms: ${intercoms || "N/A"}\n
+                   Message: ${message}`
         };
 
-        // Send the email
+        // 4️⃣ Send Email
+        console.log("📤 Sending email...");
         await transporter.sendMail(mailOptions);
+        console.log("✅ Email sent successfully");
 
-        // Respond with a success message
-        res.status(200).json({ message: "Your message has been sent successfully!" });
+        res.status(201).json({ message: "Form submitted & email sent successfully!" });
 
     } catch (error) {
-        console.error("Error:", error);
+        console.error("❌ Error:", error);
         res.status(500).json({ error: "Internal Server Error" });
     }
 });

@@ -74,13 +74,14 @@
 .section3 .row .col .line3{
   display:flex;
   justify-content:space-between;
+  padding-bottom:20px;
 }
 .section3 .row .col .greencard3{
   margin-top:50px;
   background-color:#00FE5E;
   padding:10px;
   border-radius:10px;
-  margin-bottom:40px;
+  margin-bottom:500px;
   margin-left:40px;
   
 }
@@ -170,7 +171,7 @@
   }
   .section3 .Block .images .charging,
   .section3 .Block .images .sticker,
-  .section3 .Block .images .charger ,
+  .section3 .Block .images .charger,
   .section3 .paragraph .content{
     display: none;
   }
@@ -296,8 +297,13 @@
   .section3  .line3{
     display:flex;
     justify-content:space-between;
-    margin-top:-10px;
+    margin-top:-20px;
   }
   
-  
+  .section3 .num3{
+    display:flex;
+    justify-content:space-between;
+    padding-top:15px;
+    padding-left:8px;
+  }
 }

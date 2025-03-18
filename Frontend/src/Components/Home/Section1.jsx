@@ -29,7 +29,7 @@ const Section1 = ({scrollTOContact}) => {
         <div className='quote'>RCG Solar Energy specialty:</div>
         <ul className='list'>
           <div>
-          <li>Lower Energy Costs</li>
+          <li className='listItem'>Lower Energy Costs</li>
           <li className='lower'>Environmentally Friendly</li>
           </div>
           <div >

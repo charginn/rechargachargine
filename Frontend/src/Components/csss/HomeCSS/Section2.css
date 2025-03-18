@@ -108,13 +108,19 @@
   
   .section2 .Right .Lazer
    {
-    display: none;
+     width:80%;
+     height:250px;
+     margin-top:10px;
+    margin-left:10px;
   }
   .section2 .left .background{
     height:250px;
     margin-top:0px;
     margin-left:0px;
    
+  }
+  .section2 .left .background{
+    display: none;
   }
   
   .section2 .left .Cards{
@@ -132,7 +138,8 @@
   .section2 .Right .paragraph {
     font-size: 16px;
     margin-top: 20px ;
-    
+    margin-left:60px;
+   
   }
 
   .section2 .Right .Learn {
@@ -142,4 +149,7 @@
     display: inline-block;
     margin: 40px 0px 20px 250px;
   }
+  .background, .Cards {
+    display: none;
 }
+

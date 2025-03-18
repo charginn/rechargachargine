@@ -191,9 +191,9 @@
     height:55%; /* Add spacing between text and form */
   }
   
-  .section6 .form-part .greenLine {
-    padding-left:-30px;
-    
+    .section6 .form-part .green-line {
+    margin-left:0px;
+    width:100%;
   }
   
   .section6 .form-part .form-fill {
@@ -266,9 +266,7 @@
     height: 15px;
     margin-top: 0; /* Remove top margin for mobile */
     background-color: #d8d8d8;
-    .mobile
-  }
-  .mobile-menu .{
     
   }
+  
 }
