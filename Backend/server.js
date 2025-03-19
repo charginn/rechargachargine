@@ -3,6 +3,7 @@ const mongoose = require('mongoose');
 const cors = require('cors');
 const dotenv = require('dotenv');
 const morgan = require('morgan');
+const path = require("path");
 
 const contactRouter = require("./routes/contactRoutes");
 const userContact = require("./routes/UserContact"); // ✅ Fixed import
@@ -17,6 +18,13 @@ if (!process.env.MONGO_URI) {
     process.exit(1);
 }
 
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static(path.join(__dirname, "../frontend/dist")));
+
+  app.get("*", (req, res) => {
+    res.sendFile(path.join(__dirname, "../frontend/dist/index.html"));
+  });
+}
 
 
 app.use(cors({
