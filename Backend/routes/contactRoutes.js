@@ -61,6 +61,10 @@ router.post("/", async (req, res) => {
         res.status(500).json({ error: "Failed to send email", details: error.message });
     }
 
+    router.get("/", (req, res) => {
+        res.json({ message: "Contact route is working!" });
+    });
+    
    
     
 });

@@ -17,8 +17,14 @@ if (!process.env.MONGO_URI) {
     process.exit(1);
 }
 
-// Middleware setup
-app.use(cors());
+
+
+app.use(cors({
+    origin: "https://recharga-chargine.vercel.app", // Allow your frontend URL
+    methods: "GET,POST,PUT,DELETE",
+    credentials: true 
+}));
+
 app.use(express.json());
 app.use(morgan('dev'));
 
