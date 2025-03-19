@@ -1,107 +1,105 @@
-import React, { useState, forwardRef } from 'react';
-import pointer from '../images/pointer.png';
-import '../csss/HomeCSS/Section6.css';
+import React, { useState, useEffect } from 'react';
+import '../csss/ContactCSS/Section6.css'; // Make sure you have proper CSS
 
-const Section6 = forwardRef((props, ref) => {  
+const Section6 = () => {
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    phone: '',
+    consultationType: '',
+  });
 
-   
-    const [formData, setFormData] = useState({
+  const [isFormValid, setIsFormValid] = useState(false);
+
+  // Handle input changes
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({
+      ...formData,
+      [name]: value,
+    });
+  };
+
+  // Check if all form fields are filled
+  useEffect(() => {
+    const allFilled = Object.values(formData).every((field) => field.trim() !== '');
+    setIsFormValid(allFilled);
+  }, [formData]);
+
+  // Handle form submission
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    // Create FormData and append access_key
+    const formDataToSend = new FormData();
+    Object.keys(formData).forEach((key) => {
+      formDataToSend.append(key, formData[key]);
+    });
+    formDataToSend.append('access_key', 'd354e4fe-b7ae-449d-b15c-4dd1e31dc92a'); // Replace with your access key
+
+    // Send form data to Web3Forms API
+    const response = await fetch('https://api.web3forms.com/submit', {
+      method: 'POST',
+      body: formDataToSend,
+    });
+
+    const data = await response.json();
+
+    if (response.ok && data.success) {
+      alert('Your form is successfully submitted!');
+      setFormData({
         name: '',
         email: '',
         phone: '',
-        intercoms: '',
-        message: '',
-        agreeTerms: false
-    });
+        consultationType: '',
+      });
+    } else {
+      alert('Something went wrong. Please try again.');
+    }
+  };
 
-    const handleChange = (e) => {
-        const { name, value, type, checked } = e.target;
-        setFormData({
-            ...formData,
-            [name]: type === "checkbox" ? checked : value
-        });
-    };
+  return (
+    <div className="section6">
+      <div className="section6Card">
+        <div className="heading">Section 6 - Contact Us</div>
+        <div className="sub-heading">Contact us for any inquiries and we will get back to you soon.</div>
 
-    const handleSubmit = async (e) => {
-        e.preventDefault();
-
-        if (!formData.agreeTerms) {
-            alert("You must accept the terms and conditions.");
-            return;
-        }
-        console.log('Sending data', formData);
-
-        const response = await fetch('http://localhost:5000/UserContact', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(formData),
-        });
-         console.log('response recieved',response);
-        if (response.ok) {
-            alert('Email sent successfully!');
-            setFormData({
-                name: '',
-                email: '',
-                phone: '',
-                intercoms: '',
-                message: '',
-                agreeTerms: false
-            });
-        } else {
-            alert('Failed to send message. Please try again.');
-        }
-       
-        
+        <form onSubmit={handleSubmit}>
+          <input
+            type="text"
+            name="name"
+            placeholder="Your Name"
+            value={formData.name}
+            onChange={handleChange}
+          />
+          <input
+            type="email"
+            name="email"
+            placeholder="Your Email"
+            value={formData.email}
+            onChange={handleChange}
+          />
+          <input
+            type="text"
+            name="phone"
+            placeholder="Your Phone"
+            value={formData.phone}
+            onChange={handleChange}
+          />
+          <input
+            type="text"
+            name="consultationType"
+            placeholder="Consultation Type"
+            value={formData.consultationType}
+            onChange={handleChange}
+          />
+          <button type="submit" disabled={!isFormValid}>
+            Send Us Your Message
+          </button>
+        </form>
+      </div>
+    </div>
+  );
 };
-
-    return (
-        <div className='section6' ref={ref}> {/* ✅ Attach ref here */}
-            <div className='text-part'>
-                <div className='small'><img src={pointer} alt="Pointer" /> Contact Recharga Chargine</div>
-                <div className='big'>Get In Touch With Us</div>
-                <div className='details'>
-                    We’re finding ways to bring energy to more people in more ways every day,
-                    so that all of us can be part of the changing energy system. Because Power
-                    ring Progress means providing.
-                </div>
-                <div className='address'>
-                    <div className='top'>
-                        <div>Our Address</div>
-                        <div>Our Mail Address</div>
-                    </div>
-                    <div className='bottom'>
-                        <div>Jaipur, Rajasthan, India</div>
-                        <div>salesinquiry@rechargachargine.com</div>
-                    </div>
-                </div>
-            </div>
-            <div className='form-part'>
-                <hr className='green-line'/>
-                <form className='form-fill' onSubmit={handleSubmit}>
-                    <div className='input1'>
-                        <input type="text" placeholder='Name*' name="name" onChange={handleChange} value={formData.name} />
-                        <input type="email" placeholder='Email*' name="email" onChange={handleChange} value={formData.email} />
-                    </div>
-                    <div className='input2'>
-                        <input type="text" placeholder='Phone*' name="phone" onChange={handleChange} value={formData.phone} />
-                        <input type="text" placeholder='Intercoms' name="intercoms" onChange={handleChange} value={formData.intercoms} />
-                    </div>
-                    <div className='input3'>
-                        <textarea placeholder='Message*' name="message" onChange={handleChange} value={formData.message} />
-                        <div className='checkbox-div'>
-                            <input type="checkbox" className='checkbox' name="agreeTerms" onChange={handleChange} checked={formData.agreeTerms} />
-                            <label> Accept terms and conditions from Rechraga Chargine</label>
-                           
-                            <button type="submit">Send Us For Email</button>                            
-                            </div>
-                       
-                    </div>
-                </form>
-            </div>
-        </div>
-    );
-});
 
 export default Section6;
