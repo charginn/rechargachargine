@@ -11,26 +11,10 @@ const userContact = require("./routes/UserContact"); // ✅ Fixed import
 dotenv.config();
 
 const app = express();
-
-// Check if MONGO_URI is defined
-if (!process.env.MONGO_URI) {
-    console.error("❌ MongoDB URI is not defined!");
-    process.exit(1);
-}
-
-if (process.env.NODE_ENV === "production") {
-  app.use(express.static(path.join(__dirname, "../frontend/dist")));
-
-  app.get("*", (req, res) => {
-    res.sendFile(path.join(__dirname, "../frontend/dist/index.html"));
-  });
-}
-
-
 app.use(cors({
-    origin: "https://recharga-chargine.vercel.app", // Allow your frontend URL
-    methods: "GET,POST,PUT,DELETE",
-    credentials: true 
+ 
+  methods: "GET,POST,PUT,DELETE",
+  credentials: true 
 }));
 
 app.use(express.json());
@@ -44,9 +28,24 @@ mongoose.connect(process.env.MONGO_URI)
     process.exit(1);
   });
 
-// Use routes
+// Check if MONGO_URI is defined
+if (!process.env.MONGO_URI) {
+    console.error("❌ MongoDB URI is not defined!");
+    process.exit(1);
+}
+
 app.use('/contact', contactRouter);
 app.use('/UserContact', userContact); // ✅ Corrected variable name
+
+
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static(path.join(__dirname, "../frontend/dist")));
+
+  app.get("*", (req, res) => {
+    res.sendFile(path.join(__dirname, "../frontend/dist/index.html"));
+  });
+}
+
 
 // Error handling middleware
 app.use((err, req, res, next) => {
