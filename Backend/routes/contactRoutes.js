@@ -5,6 +5,7 @@ const dotenv = require("dotenv");
 const nodemailer = require("nodemailer");
 const validator = require("validator");
 
+
 dotenv.config();
 
 // Debugging: Check if .env variables are loaded
